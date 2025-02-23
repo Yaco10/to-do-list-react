@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
+import '../style/Form.css'
 
 export const AddTask = ({ handleAdd }) => {
     const [inputValue, setInputValue] = useState('');

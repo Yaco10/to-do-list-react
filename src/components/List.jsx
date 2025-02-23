@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Task } from './Task'
 import { AddTask } from './AddTask'
+import '../style/List.css'
 
 export function List() {
     const [task,setTask] = useState([
