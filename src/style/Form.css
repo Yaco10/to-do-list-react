@@ -1,0 +1,23 @@
+input {
+    height: 10px;
+    width: 200px;  /* Tamaño del campo de texto */
+    padding: 10px; /* Espaciado interno */
+    border: none;  /* Eliminar bordes */
+    border-bottom: 2px solid #4d4d4d;  
+    background-color: #222222;
+    color: white;
+    font-size: 16px;  /* Tamaño de la fuente */
+    transition: all 0.3s ease;  /* Animación suave al cambiar el estilo */
+    outline: none; 
+}
+
+input:focus{
+    border-color: #66afe9;  /* Cambio de color del borde cuando el campo está enfocado */
+    box-shadow: 0 0 5px rgba(102, 175, 233, .8);  /* Sombra azul alrededor del campo */
+    border-radius: 10px;
+}
+
+input::placeholder{
+    color: #aaa;  /* Color del texto del placeholder */
+    font-style: italic;  /* Estilo en cursiva para el placeholder */
+}
