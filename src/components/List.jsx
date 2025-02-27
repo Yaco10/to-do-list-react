@@ -1,54 +1,57 @@
-import { useState } from 'react'
-import { Task } from './Task'
-import { AddTask } from './AddTask'
-import '../style/List.css'
+import { Task } from "./Task";
+import { AddTask } from "./AddTask";
+import "../style/List.css";
+import { useList } from "../hook/useList";
+import "../style/Task.css";
 
 export function List() {
-    const [task,setTask] = useState([
-        {id:'1',title: 'Comprar Pan', done: false},
-        {id:'2',title: 'Salir a correr', done: false},
-        {id:'3',title: 'respirar', done: false},
-    ])
+  const { task, handleAdd, handleState, handleDelete, handleEdit } = useList();
 
-    const handleState = (id) => {
-        const newTask = task.map((taskPar) => {
-            if (taskPar.id === id) {
-                taskPar.done = true;
-            }
-            return taskPar;
-        })
-        setTask(newTask)
-        console.log(newTask)
-    }
 
-    const handleDelete = (id) =>{
-        const newTask = task.filter(element => element.id != id)
-        setTask(newTask)
-    }
-
-    const handleAdd = (input) =>{
-        const data = {
-            id: task.length + 1,
-            title: input,
-            done: false,
-        }
-        const newTask = [...task,data]
-        setTask(newTask)
-    }
-
-    
   return (
-    <>
-     <div>
-        <h1>Tareas</h1>
-        <AddTask handleAdd={handleAdd}/>
-        {
-           task.map( (taskPar,index) => {
-            const {id,title,done} = taskPar
-            return <Task key={id} title={title} done={done} handleState={handleState} handleDelete={handleDelete} id={id} />
-           })
-        }
-     </div>
-    </>
-  )
+      <>
+        <h1>Lista de Tareas</h1>
+        <AddTask handleAdd={handleAdd} />
+        <div className="lists-container">
+
+        <div className="one-list">
+          <h2>Tareas Pendientes</h2>
+          <div className="list">
+          {task
+            .filter((taskPar) => !taskPar.done) // Filtramos tareas no completadas
+            .map(({ id, title, done }) => (
+              <Task
+                key={id}
+                title={title}
+                done={done}
+                handleState={handleState}
+                handleDelete={handleDelete}
+                handleEdit={handleEdit}
+                inputValue={title}
+                id={id}
+              />
+            ))}
+          </div>
+        </div>
+    
+        <div className="one-list">
+          <h2>Tareas Completadas</h2>
+          <div className="list">
+          {task
+            .filter((taskPar) => taskPar.done) // Filtramos tareas completadas
+            .map(({ id, title, done }) => (
+              <Task
+                key={id}
+                title={title}
+                done={done}
+                handleState={handleState}
+                handleDelete={handleDelete}
+                id={id}
+              />
+            ))}
+          </div>
+        </div>
+        </div>
+      </>
+    );
 }

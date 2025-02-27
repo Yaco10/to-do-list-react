@@ -1,0 +1,28 @@
+
+.task {
+    height: 30px;  
+    color: white;
+    margin: 10px;
+    background-color: rgb(64, 62, 62);
+    border-radius: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;  
+    flex-direction: row;
+    overflow: hidden;
+    padding: 10px;  
+    cursor:pointer;
+    font-size: 15px;
+}
+
+.task:hover{
+    height: 33px;
+    font-size: 16px;
+    color: rgb(141, 140, 140);
+     
+}
+
+.task p {
+    margin: 0;  
+    padding: 0; 
+}

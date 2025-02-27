@@ -1,6 +1,6 @@
 input {
-    height: 10px;
-    width: 200px;  /* Tamaño del campo de texto */
+    height: 1vh;
+    width: 100%;  /* Tamaño del campo de texto */
     padding: 10px; /* Espaciado interno */
     border: none;  /* Eliminar bordes */
     border-bottom: 2px solid #4d4d4d;  
