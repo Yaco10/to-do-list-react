@@ -7,6 +7,7 @@ export function useList() {
     { id: "3", title: "respirar", done: false },
   ]);
   const [nextId, setNextId] = useState(task.length + 1);
+  const [editMode, setEditMode] = useState(false);
 
   const handleState = (id) => {
     const newTask = task.map((taskPar) => {
@@ -38,6 +39,9 @@ export function useList() {
     setTask(newTask);
     setNextId(nextId + 1);
   };
+  const toggleEditMode = () => {
+    setEditMode(!editMode);
+  }
 
   const handleEdit = (id, input) => {
     const newTask = task.map((element) => {
@@ -50,5 +54,5 @@ export function useList() {
     setTask(newTask);
   };
 
-  return { task, handleState, handleDelete, handleAdd, handleEdit };
+  return { task,editMode, handleState, handleDelete, handleAdd, handleEdit };
 }

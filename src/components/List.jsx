@@ -3,9 +3,10 @@ import { AddTask } from "./AddTask";
 import "../style/List.css";
 import { useList } from "../hook/useList";
 import "../style/Task.css";
+import { EditTask } from "./EditTask";
 
 export function List() {
-  const { task, handleAdd, handleState, handleDelete, handleEdit } = useList();
+  const { task,editMode, handleAdd, handleState, handleDelete, handleEdit } = useList();
 
 
   return (
@@ -30,6 +31,9 @@ export function List() {
                 inputValue={title}
                 id={id}
               />
+              if(editMode === true){
+                <EditTask handleEdit={handleEdit} id={id}/>
+              }
             ))}
           </div>
         </div>
