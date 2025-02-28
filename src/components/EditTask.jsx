@@ -1,4 +1,5 @@
-import useState from 'react'
+import React, { useState } from 'react'
+import '../style/FormEdit.css'
 
 export function EditTask({ handleEdit,id }) {
        const [inputValue, setInputValue] = useState('');
@@ -12,7 +13,7 @@ export function EditTask({ handleEdit,id }) {
        }
    
      return (
-       <form onSubmit={onSubmit}>
+       <form onSubmit={onSubmit} className='form-edit'>
            <input
             type="text" 
             placeholder='Editar Tarea'
